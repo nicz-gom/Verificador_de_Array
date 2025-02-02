@@ -1,0 +1,16 @@
+*{
+    font-family: sans-serif;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    transition: 1s;
+}
+
+li{
+    margin: auto;
+    list-style: none;
+    transition: 1s;
+}
