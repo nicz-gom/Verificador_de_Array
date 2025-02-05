@@ -2,15 +2,25 @@
     font-family: sans-serif;
 }
 
+#container{
+    display: flex;
+    flex-direction: row;
+    height: 22px;
+}
+
+#remov{
+    width: 22px;
+}
+
+
 ul{
     display: flex;
     flex-direction: row;
-    padding: 5px;
     transition: 1s;
 }
 
 li{
     margin: auto;
-    list-style: none;
+    list-style: decimal;
     transition: 1s;
 }

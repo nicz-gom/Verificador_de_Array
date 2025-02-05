@@ -1,8 +1,9 @@
 let addElement = document.getElementById("add");
 let removElement = document.getElementById("remov");
 let inputOfListElement = document.getElementById("inputOfList");
+let divButtonElement = document.getElementById("buttonAdd");
 let ulElement = document.querySelector("ul");
-let limit = 2;
+let limit = 5;
 
 let list = [];
 
@@ -49,7 +50,7 @@ function delet(){
         list.splice(truePosition,1);
         
         if(list.length < limit){
-            addElement.innerHTML;
+            divButtonElement.appendChild(addElement);
         }
 
         render();
