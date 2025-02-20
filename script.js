@@ -3,6 +3,9 @@ let removElement = document.getElementById("remov");
 let inputOfListElement = document.getElementById("inputOfList");
 let divButtonElement = document.getElementById("buttonAdd");
 let ulElement = document.querySelector("ul");
+let buttonVerifyElement = document.getElementById("verify");
+let positionElement = document.getElementById("position");
+
 let limit = 5;
 
 let list = [];
@@ -60,9 +63,31 @@ function delet(){
 }
 
 
-function verify(pList, pIten){
-
+function position(){
+    let receiver = positionElement.value;
+    positionElement.value = '';
+    if(receiver == ''){
+        alert("You need to type something");
+    }else{
+        alert(`This is your position/element (${receiver}). Inserted successfully...`);
+        verify(list, receiver);
+    }
 }
+
+function verify(pList, pItem){
+    if(pList == ''){
+        alert("Not have anything in your list!!!");
+    }else{
+        render();
+        alert(`This is your list... ${pList}`);
+        pList.find((pItem) => {
+            ///ficou faltando -> ver a função find e como ajustar a lista além de separação por ,
+        }) 
+    }
+}
+
+
 
 removElement.onclick = delet;
 addElement.onclick = add;
+buttonVerifyElement.onclick = position;
