@@ -17,8 +17,11 @@ function render(){
         let liElement = document.createElement("li");
         let pElement = document.createElement("p");
         let pText = document.createTextNode(todo);
+        let checkboxElement = document.createElement("input");
+        checkboxElement.setAttribute("type", "checkbox");
         
         pElement.appendChild(pText);
+        liElement.appendChild(checkboxElement);
         liElement.appendChild(pElement);
         ulElement.appendChild(liElement);
     })
@@ -30,7 +33,7 @@ function add(){
     }else{
         alert("Object added successfully!!");
 
-        list.push(inputOfListElement.value);
+        list.push(inputOfListElement.value.toUpperCase());
 
         inputOfListElement.value = '';
         inputOfListElement.focus();
@@ -45,8 +48,7 @@ function add(){
 }
 
 function delet(){
-    let position = prompt('Type the position you want remove:');
-
+    let position = prompt('Type the position you want remove:')
     if(position <= list.length && position > 0){
         let truePosition = Number(position);
         truePosition--;
@@ -64,12 +66,13 @@ function delet(){
 
 
 function position(){
-    let receiver = positionElement.value;
+    let receiver = positionElement.value.toUpperCase();
+    console.log(receiver);
     positionElement.value = '';
     if(receiver == ''){
         alert("You need to type something");
     }else{
-        alert(`This is your position/element (${receiver}). Inserted successfully...`);
+        alert(`This is your element (${receiver}). Inserted successfully...`);
         verify(list, receiver);
     }
 }
@@ -78,11 +81,16 @@ function verify(pList, pItem){
     if(pList == ''){
         alert("Not have anything in your list!!!");
     }else{
-        render();
-        alert(`This is your list... ${pList}`);
-        pList.find((pItem) => {
-            ///ficou faltando -> ver a função find e como ajustar a lista além de separação por ,
-        }) 
+        alert(`Searching...`);
+        for(let i = 0; i <= pList.length; i++){
+            if(i == pItem){
+                alert(`Element foud! Your element: ${pList[i-1]}`);
+                break;
+            }
+            if(i == pList.length){
+                alert("Element not foud!");
+            }
+        }
     }
 }
 
